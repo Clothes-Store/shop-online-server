@@ -1,6 +1,6 @@
-drop database if exists onlineshop;
-create database onlineshop;
-use onlineshop;
+drop database if exists clothesstore;
+create database clothesstore;
+use clothesstore;
 create table cities(
     id int auto_increment primary key ,
     name varchar(150),
@@ -26,7 +26,7 @@ create table users(
     province_id int,
     city_id int,
     address text,
-    created date default (CURRENT_DATE + INTERVAL 1 YEAR),
+    created datetime default CURRENT_TIMESTAMP,
     foreign key (province_id) references provinces(id),
     foreign key (city_id) references cities(id)
 );
@@ -35,7 +35,7 @@ create table notices(
     id int auto_increment primary key ,
     content text,
     is_read bool,
-    created date default (CURRENT_DATE + INTERVAL 1 YEAR)
+    created datetime default CURRENT_TIMESTAMP
 );
 
 create table categories(
@@ -47,7 +47,7 @@ create table collections(
     id int auto_increment primary key ,
     banner text,
     name varchar(150),
-    created date default (CURRENT_DATE + INTERVAL 1 YEAR)
+    created datetime default CURRENT_TIMESTAMP
 );
 
 create table products(
@@ -58,7 +58,7 @@ create table products(
     sale double,
     category_id int,
     collection_id int,
-    created date default (CURRENT_DATE + INTERVAL 1 YEAR),
+    created datetime default CURRENT_TIMESTAMP,
     foreign key (category_id) references categories(id),
     foreign key (collection_id) references collections(id)
 );
