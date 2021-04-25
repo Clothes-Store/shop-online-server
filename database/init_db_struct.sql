@@ -1,5 +1,6 @@
 drop database if exists clothesstore;
-create database clothesstore;
+create database clothesstore CHARACTER SET utf8
+  COLLATE utf8_general_ci;
 use clothesstore;
 create table cities(
     id int auto_increment primary key ,
@@ -74,7 +75,7 @@ create table orders(
     id int auto_increment primary key ,
     user_id int,
     payment_method smallint,
-    order_date date,
+    order_date datetime default CURRENT_TIMESTAMP,
     foreign key (user_id) references users(id)
 );
 

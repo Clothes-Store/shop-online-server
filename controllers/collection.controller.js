@@ -7,7 +7,7 @@ const getAllCollection = async (_, res) => {
         const response = new Response(200, 'OK', collections);
         res.status(200).json(response);
     } catch (error) {
-        const response = new Response(500, err);
+        const response = new Response(500, error);
         res.status(500).json(response);
     }
 }
@@ -25,7 +25,7 @@ const addNewCollection = async (req, res) => {
         const response = new Response(200, 'OK', collections);
         res.status(200).json(response);
     } catch (error) {
-        const response = new Response(500, err);
+        const response = new Response(500, error);
         res.status(500).json(response);
     }
 }
@@ -44,7 +44,7 @@ const updateCollection = async (req, res) => {
         const response = new Response(200, 'OK', collections);
         res.status(200).json(response);
     } catch (error) {
-        const response = new Response(500, err);
+        const response = new Response(500, error);
         res.status(500).json(response);
     }
 }
@@ -56,7 +56,7 @@ const deleteById = async (req, res) => {
         const response = new Response(200, 'OK', collections);
         res.status(200).json(response);
     } catch (error) {
-        const response = new Response(500, err);
+        const response = new Response(500, error);
         res.status(500).json(response);
     }
 }

@@ -4,3 +4,6 @@ module.exports.ProvinceService = require('./province.service');
 module.exports.CollectionService = require('./collection.service');
 module.exports.NoticeService = require('./notice.service');
 module.exports.SessionService = require('./session.service');
+module.exports.UserService = require('./user.service');
+module.exports.ProductService = require('./product.service');
+module.exports.OrderService = require('./order.service');

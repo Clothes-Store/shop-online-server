@@ -7,7 +7,7 @@ const getAllCity = async (_, res) => {
         const response = new Response(200, 'OK', cities);
         res.status(200).json(response);
     } catch (error) {
-        const response = new Response(500, err);
+        const response = new Response(500, error);
         res.status(500).json(response);
     }
 }
