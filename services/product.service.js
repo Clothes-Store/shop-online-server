@@ -4,7 +4,7 @@ const selectAll = async (limit) => {
   try {
     let rs;
     if (limit > 0) {
-      rs = await db.execute(`SELECT * FROM products LIMIT ?`, [limit]);
+      rs = await db.execute(`SELECT *, p.id as id, c.name as category_name FROM products p join categories c on c.id = p.category_id LIMIT ?`, [limit]);
     } else {
       rs = await db.execute(`SELECT * FROM products`);
     }
@@ -23,7 +23,8 @@ const selectById = async (id) => {
       `SELECT * FROM product_imgs where product_id = ?`,
       [id]
     );
-    return { product, imgs };
+    product[0].imgs = imgs.map(i => i.img)
+    return product[0];
   } catch (error) {
     console.log(error);
   }
@@ -88,10 +89,11 @@ const addNew = async (product, imgs) => {
       sale,
       category_id,
       collection_id,
+      description
     } = product;
     const products = await db.execute(
-      `INSERT INTO products (name, type, current_price, sale, category_id, collection_id) VALUES (?, ?, ?, ?, ?, ?)`,
-      [name, type, current_price, sale, category_id, collection_id]
+      `INSERT INTO products (name, type, current_price, sale, category_id, collection_id, description) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [name, type, current_price, sale, category_id, collection_id, description]
     );
     const product_id = products[2];
     const promises = [];

@@ -2,8 +2,9 @@ const db = require('../database');
 
 const selectAll = async () => {
     try {
-        const rs = await db.execute(`SELECT * FROM cities`);
-        return rs;
+        const cities = await db.execute(`SELECT * FROM cities`);
+        const provinces = await db.execute(`SELECT * FROM provinces`);
+        return {cities, provinces};
     } catch (error) {
         console.log(error);
     }

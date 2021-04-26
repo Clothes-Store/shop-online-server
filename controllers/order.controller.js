@@ -12,13 +12,23 @@ const getAllOrder = async (_, res) => {
     }
 }
 
+const getOrder = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const orders = await OrderService.selectById(id);
+        const response = new Response(200, 'OK', orders);
+        res.status(200).json(response);
+    } catch (error) {
+        const response = new Response(500, error);
+        res.status(500).json(response);
+    }
+}
+
 const createOrder = async (req, res) => {
     try {
-        const user_id = 1;
-        const {
-            product_id, number, price_each
-        } = req.body;
-        const orders = await OrderService.createOrder(user_id, product_id, number, price_each);
+        const user_id = req.body.user_id;
+        const orderList = req.body.orderList;
+        const orders = await OrderService.createOrder(user_id, orderList);
         const response = new Response(200, 'OK', orders);
         res.status(200).json(response);
     } catch (error) {
@@ -29,5 +39,6 @@ const createOrder = async (req, res) => {
 
 module.exports = {
     getAllOrder,
-    createOrder
+    createOrder,
+    getOrder
 }

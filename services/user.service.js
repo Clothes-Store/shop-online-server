@@ -4,7 +4,7 @@ const selectAll = async (limit) => {
   try {
     let rs;
     if (limit > 0) {
-      rs = await db.execute(`SELECT * FROM users LIMIT = ?`, [limit]);
+      rs = await db.execute(`SELECT * FROM users LIMIT ?`, [limit]);
     } else {
       rs = await db.execute(`SELECT * FROM users`);
     }

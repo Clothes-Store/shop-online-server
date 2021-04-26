@@ -14,12 +14,13 @@ app.use(cors());
 app.options("*", cors());
 
 app.use('/api/category', routers.CategoryRouter);
-app.use('/api/city', routers.CityRouter);
+app.use('/api/address', routers.CityRouter);
 app.use('/api/province', routers.ProvinceRouter);
 app.use('/api/collection', routers.CollectionRouter);
 app.use('/api/notice', routers.NoticeRouter);
 app.use('/api/product', routers.ProductRouter);
 app.use('/api/order', routers.OrderRouter);
+app.use('/api/user', routers.UserRouter);
 
 const server = http.createServer(app);
 const PORT = config.get("server.port") || 3000;
