@@ -1,0 +1,16 @@
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (1, 1, 'public\\images\\069583fd23927f969f14ea6b6a792ff5');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (2, 1, 'public\\images\\157036e39b29051f522664c7e99e576e');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (3, 2, 'public\\images\\214b177182a88de05696a243ce8ea492');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (4, 2, 'public\\images\\43fc6bcd601d7ea1edeae0eca7977e3c');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (5, 3, 'public\\images\\9b14c502f047975f2f8e551a93c73b37');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (6, 3, 'public\\images\\eeb45b77f12b9630d25502fdbda11c17');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (7, 5, 'public\\images\\3e79a6c90f7204e2ef52928cf9bae096');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (8, 5, 'public\\images\\598269b05e00e324449ce84d568c742d');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (9, 6, 'public\\images\\91a91860aa941b82746304510e9447ed');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (10, 6, 'public\\images\\bf6747bf9059a0dee2b0735c443feb3a');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (14, 8, 'public\\images\\88d9e69ff0a933352d484060f3b68e38');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (15, 8, 'public\\images\\27e64043ad219344ffd935528d050099');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (16, 9, 'public\\images\\362ec0dcd89c4b8f0c66d160e2171cd9');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (17, 9, 'public\\images\\92eed0ebf9347258661b3d64789ff668');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (18, 10, 'public\\images\\c135615cef6570f5d8b7c0cc90c3f5ef');
+INSERT INTO clothesstore.product_imgs (id, product_id, img) VALUES (19, 10, 'public\\images\\5e510362fec7ed22d86537c3f2aa6c98');

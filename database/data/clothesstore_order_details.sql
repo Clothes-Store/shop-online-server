@@ -1,0 +1,2 @@
+INSERT INTO clothesstore.order_details (id, order_id, product_id, number, price_each) VALUES (1, 1, 2, 1, 295000);
+INSERT INTO clothesstore.order_details (id, order_id, product_id, number, price_each) VALUES (2, 1, 1, 1, 195000);

@@ -1,0 +1,1 @@
+INSERT INTO clothesstore.orders (id, user_id, payment_method, order_date) VALUES (1, 1, 0, '2021-04-26 19:31:36');

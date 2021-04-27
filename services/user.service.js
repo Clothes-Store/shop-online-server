@@ -24,6 +24,19 @@ const selectById = async (id) => {
   }
 };
 
+const getStaticMetrics = async () => {
+  try {
+    const rs = await Promise.all([
+      db.execute(`select users.name as name , sum(od.number * od.price_each) as total_order from users join orders o on users.id = o.user_id join order_details od on o.id = od.order_id group by od.order_id`),
+      db.execute(`select products.name as product_name, sum(number) as total_sale from products join order_details od on products.id = od.product_id group by od.product_id`),
+      db.execute(`select count(*) as total_user from users`)
+    ]);
+    return rs;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const selectByPhone = async (phone) => {
   try {
     const rs = await db.execute(`SELECT * FROM users where phone = ?`, [phone]);
@@ -93,4 +106,5 @@ module.exports = {
   addNew,
   selectByPhone,
   selectByEmail,
+  getStaticMetrics
 };

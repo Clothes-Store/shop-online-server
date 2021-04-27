@@ -17,6 +17,17 @@ const getAllUser = async (_, res) => {
     }
 }
 
+const getStaticUser = async (_, res) => {
+    try {
+        const rs = await UserService.getStaticMetrics();
+        const response = new Response(200, 'OK', rs);
+        res.status(200).json(response);
+    } catch (error) {
+        const response = new Response(500, error);
+        res.status(500).json(response);
+    }
+}
+
 const getUser = async (req, res) => {
     try {
         const id = req.params.id;
@@ -144,5 +155,6 @@ module.exports = {
     register,
     login,
     getUser,
-    update
+    update,
+    getStaticUser
 }

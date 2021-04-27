@@ -124,6 +124,40 @@ const updateField = async (id, name, value) => {
   }
 };
 
+const deleteProduct = async (id) => {
+  try {
+    const rs = await Promise.all([
+      db.execute( `DELETE FROM product_imgs  WHERE product_id = ${id}`),
+      db.execute( `DELETE FROM products  WHERE id = ${id}`),
+    ])
+    return rs;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateAll = async (id, product, imgs = []) => {
+  try {
+    const products = await db.execute(
+      `UPDATE products SET name = ?, type = ?, current_price = ?, sale =?, category_id = ?, collection_id = ?, description = ? WHERE id = ?`,
+      [product.name, product.type, product.current_price, product.sale, product.category_id, product.collection_id, product.description, id]
+    );
+    const promises = [];
+    for (let i = 0; i < imgs.length; i++) {
+      promises.push(
+        db.execute(`INSERT INTO product_imgs (product_id, img) VALUES (?, ?)`, [
+          id,
+          imgs[i],
+        ])
+      );
+    }
+    await Promise.all(promises);
+    return products;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getImgs,
   selectById,
@@ -133,4 +167,6 @@ module.exports = {
   selectByCollection,
   addNew,
   updateField,
+  updateAll,
+  deleteProduct
 };

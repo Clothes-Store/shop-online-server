@@ -59,6 +59,7 @@ create table products(
     sale double,
     category_id int,
     collection_id int,
+    description text,
     created datetime default CURRENT_TIMESTAMP,
     foreign key (category_id) references categories(id),
     foreign key (collection_id) references collections(id)
