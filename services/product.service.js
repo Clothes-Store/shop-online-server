@@ -4,7 +4,7 @@ const selectAll = async (limit) => {
   try {
     let rs;
     if (limit > 0) {
-      rs = await db.execute(`SELECT *, p.id as id, c.name as category_name FROM products p join categories c on c.id = p.category_id LIMIT ?`, [limit]);
+      rs = await db.execute(`SELECT *, p.name as name, p.id as id, c.name as category_name FROM products p join categories c on c.id = p.category_id LIMIT ?`, [limit]);
     } else {
       rs = await db.execute(`SELECT * FROM products`);
     }
